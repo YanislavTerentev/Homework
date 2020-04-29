@@ -1,23 +1,23 @@
 package by.academy.HomeWork.HomeWork4;
 
 public class Animal {
-    private int age;
-    private String nick;
+    String nick;
+    int age;
 
-    public Animal(int age, String nick) {
-        this.age = age;
+    public Animal(String nick, int age) {
         this.nick = nick;
-    }
-
-    public int getAge() {
-        return age;
+        this.age = age;
     }
 
     @Override
     public String toString() {
-        return "Animal(" +
-                "age=" + age +
-                ", nick='" + nick + '\'' +
-                ')';
+        return String.format("{nick: %s; Age: %s}", nick, age);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Animal animal = (Animal) obj;
+        return nick == animal.nick && age == animal.age;
+    }
+
 }

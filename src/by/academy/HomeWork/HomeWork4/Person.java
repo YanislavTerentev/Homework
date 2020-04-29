@@ -3,10 +3,9 @@ package by.academy.HomeWork.HomeWork4;
 import java.time.LocalDate;
 
 public class Person {
-    private String nick;
-    private String password;
-    private LocalDate registration;
-
+    String nick;
+    String password;
+    LocalDate registration;
 
     public Person(String nick, String password, LocalDate registration) {
         this.nick = nick;
@@ -14,16 +13,16 @@ public class Person {
         this.registration = registration;
     }
 
-    public LocalDate getRegistration() {
-        return registration;
+    @Override
+    public String toString() {
+        return String.format("{nick: %s; password: %s; registration: %s}", nick, password, registration);
     }
 
     @Override
-    public String toString() {
-        return "Person(" +
-                "nick='" + nick + '\'' +
-                ", password='" + password + '\'' +
-                ", registration=" + registration +
-                ')';
+    public boolean equals(Object obj) {
+        Person person = (Person) obj;
+        return person.nick == nick && person.password == password && person.registration == registration;
+
     }
+
 }
